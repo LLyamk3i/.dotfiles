@@ -55,4 +55,9 @@ print_message() {
     printf "${color}%-${max_width}s${NC}   %s\n" "${type^^}" "$message"
 }
 
+# Usage example
+# print_message info "This is an informational message."
+# print_message warning "This is a warning message."
+# print_message error "This is an error message."
+# print_message success "This is a success message."
 
