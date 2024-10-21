@@ -29,7 +29,7 @@ function M.copyq()
   selected_text = M.trim(selected_text)
 
   -- Escape special characters
-  local escaped_text = M.escape_shell_arg(selected_text)
+  local selected_text = M.escape_shell_arg(selected_text)
 
   -- Use CopyQ to copy the selected text
   os.execute('copyq add "' .. selected_text .. '"')
