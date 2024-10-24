@@ -5,11 +5,6 @@ function M.trim(s)
   return s:match("^%s*(.-)%s*$")  -- Match and return the trimmed string
 end
 
--- Function to escape special characters for shell command
-function M.escape_shell_arg(arg)
-  return arg:gsub("([\"'\\])", "\\%1"):gsub("(%s)", "\\ ")  -- Escape quotes and spaces
-end
-
 -- Function to copy selected text to clipboard using CopyQ
 function M.copyq()
   -- Clear the z register
@@ -27,9 +22,6 @@ function M.copyq()
 
   -- Trim the selected text
   selected_text = M.trim(selected_text)
-
-  -- Escape special characters
-  local selected_text = M.escape_shell_arg(selected_text)
 
   -- Use CopyQ to copy the selected text
   os.execute('copyq add "' .. selected_text .. '"')
