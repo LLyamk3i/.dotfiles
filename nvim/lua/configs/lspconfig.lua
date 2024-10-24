@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "rust_analyzer", "phpactor", "ast_grep", "bashls"}
+local servers = { "html", "cssls", "rust_analyzer", "ast_grep", "bashls"}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -15,6 +15,17 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+lspconfig.phpactor.setup{
+  cmd = { "phpactor", "language-server" },  -- Adjust the command if necessary
+  filetypes = { "php" },
+  root_dir = function()
+    return vim.fn.getcwd()  -- Use the current directory as the root
+  end,
+  on_init = nvlsp.on_init,
+  n_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+}
 
 -- configuring single server, example: typescript
 lspconfig.ts_ls.setup {
