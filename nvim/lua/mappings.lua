@@ -3,7 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
--- local functions = require("custom.functions")
+local functions = require("custom.functions")
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -23,4 +23,7 @@ map("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
 map('n', '<A-d>', 'yyP', { noremap = true, silent = true })
 
 -- Key mapping to test the add function
-map('v', '<leader>cp', function () require('custom.functions').copyq() end, { noremap = true, silent = true, desc = "Copy selected strings" })
+map('v', '<leader>cp', function () functions.copyq() end, { noremap = true, silent = true, desc = "Copy selected strings" })
+map('v', '<leader>sl', function () functions.sort_selected_by_length() end, {
+  noremap = true, silent = true, desc = "Sort by length the selected strings"
+})

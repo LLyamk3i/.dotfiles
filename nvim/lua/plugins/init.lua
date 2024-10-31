@@ -17,13 +17,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css"
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
       },
     },
   },
+
   {
-    'mg979/vim-visual-multi', -- Plugin repository
-    event = 'VeryLazy',       -- Load the plugin when Neovim is idle
+    "mg979/vim-visual-multi", -- Plugin repository
+    event = "VeryLazy", -- Load the plugin when Neovim is idle
   },
 }
