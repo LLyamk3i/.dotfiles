@@ -1,0 +1,5 @@
+alias serve="php -S 127.0.0.1:8000"
+alias art="php artisan"
+alias upt="sudo nala update && sudo nala full-upgrade -y && bun upgrade && rustup update"
+alias smaria="sudo systemctl start mariadb"
+alias luamake="/home/llyam/Downloads/lua-language-server/3rd/luamake/luamake"
