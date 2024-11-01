@@ -23,4 +23,7 @@ local opt = {
 -- Apply the options
 vim.opt.guicursor = opt.guicursor
 
+-- Automatically open the file explorer on startup
+vim.cmd([[autocmd VimEnter * NvimTreeToggle]])
+
 return M
