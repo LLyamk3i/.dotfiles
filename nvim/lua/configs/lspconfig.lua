@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ast_grep", "bashls"}
+local servers = { "html", "cssls", "ast_grep", "bashls", "jsonls"}
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -28,13 +28,6 @@ lspconfig.phpactor.setup{
 }
 
 -- configuring single server, example: typescript
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-  root_dir = lspconfig.util.root_pattern("package.json"),
-}
-
 lspconfig.denols.setup {
   on_attach = nvlsp.on_attach,
   on_init = nvlsp.on_init,
@@ -42,4 +35,11 @@ lspconfig.denols.setup {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
   single_file_support = false
 }
+
+-- lspconfig.ts_ls.setup {
+--   on_attach = nvlsp.on_attach,
+--   on_init = nvlsp.on_init,
+--   capabilities = nvlsp.capabilities,
+--   root_dir = lspconfig.util.root_pattern("package.json"),
+-- }
 
