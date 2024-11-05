@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ast_grep", "bashls", "jsonls"}
+local servers = { "html", "cssls", "ast_grep", "bashls", "jsonls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -16,11 +16,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.phpactor.setup{
-  cmd = { "phpactor", "language-server" },  -- Adjust the command if necessary
+lspconfig.phpactor.setup {
+  cmd = { "phpactor", "language-server" }, -- Adjust the command if necessary
   filetypes = { "php" },
   root_dir = function()
-    return vim.fn.getcwd()  -- Use the current directory as the root
+    return vim.fn.getcwd() -- Use the current directory as the root
   end,
   on_init = nvlsp.on_init,
   n_attach = nvlsp.on_attach,
@@ -29,17 +29,26 @@ lspconfig.phpactor.setup{
 
 -- configuring single server, example: typescript
 lspconfig.denols.setup {
-  on_attach = nvlsp.on_attach,
+  on_attach = function(client, bufnr)
+    if vim.fn.filereadable(vim.fn.getcwd() .. "/deno.json") == 1 then
+      if client.name == "tsserver" then
+        client.stop()
+        print "Stopped tsserver because deno.json was found."
+      end
+    else
+      nvlsp.on_attach(client, bufnr)
+    end
+  end,
   on_init = nvlsp.on_init,
   capabilities = nvlsp.capabilities,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-  single_file_support = false
+  single_file_support = false,
 }
 
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
---   root_dir = lspconfig.util.root_pattern("package.json"),
--- }
-
+lspconfig.ts_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  root_dir = lspconfig.util.root_pattern "package.json",
+  single_file_support = true,
+}
