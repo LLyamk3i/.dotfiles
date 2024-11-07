@@ -26,4 +26,6 @@ vim.opt.guicursor = opt.guicursor
 -- Automatically open the file explorer on startup
 vim.cmd([[autocmd VimEnter * NvimTreeToggle]])
 
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 return M
