@@ -17,5 +17,6 @@ return {
       },
     }
     vim.keymap.set("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+    vim.keymap.set("n", "<Leader>ca", "<cmd>lua vim.cmd('RustLsp codeAction')<CR>", { desc = "Rust code action" })
   end
 }
