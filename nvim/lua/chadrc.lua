@@ -28,4 +28,11 @@ vim.cmd([[autocmd VimEnter * NvimTreeToggle]])
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+require'nvim-tree'.setup {
+    filters = {
+        git_ignored = false,  -- Set to false to show git ignored files
+    },
+}
+
+
 return M
