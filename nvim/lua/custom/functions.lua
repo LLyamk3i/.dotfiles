@@ -37,6 +37,7 @@ function M.copyq()
   -- Escape single and double quotes in the selected text
   selected_text = string.gsub(selected_text, "'", "\\'")
   selected_text = string.gsub(selected_text, '"', '\\"')
+  selected_text = string.gsub(selected_text, '%$', '\\$')
 
   -- Use CopyQ to copy the selected text
   os.execute('copyq add "' .. selected_text .. '"')
