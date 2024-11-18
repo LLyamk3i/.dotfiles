@@ -1,7 +1,7 @@
 todo () {
   cd ~/lab/tmp/todos/
-  [ ! -f TODO.$(date +%Y%m%d).txt ] && grep "\[\]" TODO.$(date -d "yesterday" +%Y%m%d).txt > TODO.$(date +%Y%m%d).txt
-  nvim TODO.$(date +%Y%m%d).txt
+  [ ! -f TODO.$(date +%Y%m%d).md ] && grep "\[\]" TODO.$(date -d "yesterday" +%Y%m%d).md > TODO.$(date +%Y%m%d).md
+  nvim TODO.$(date +%Y%m%d).md
 }
 
 kebab_case() {
