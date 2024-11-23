@@ -26,6 +26,10 @@ vim.opt.guicursor = opt.guicursor
 -- Automatically open the file explorer on startup
 vim.cmd([[autocmd VimEnter * NvimTreeToggle]])
 
+-- Enable spell checking
+vim.opt.spell = true
+vim.opt.spelllang = { 'en_us' }
+
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 require'nvim-tree'.setup {
