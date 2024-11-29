@@ -30,4 +30,24 @@ return {
     "mg979/vim-visual-multi", -- Plugin repository
     event = "VeryLazy", -- Load the plugin when Neovim is idle
   },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "typescript-language-server",
+        "phpactor",
+        "ast-grep",
+        "bash-language-server",
+        "deno",
+        "json-lsp",
+        "python-lsp-server",
+        "rust-analyzer",
+        "clangd"
+      },
+    },
+  },
 }
