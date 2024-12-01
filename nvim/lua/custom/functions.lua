@@ -37,11 +37,28 @@ function M.copyq()
   -- Escape single and double quotes in the selected text
   selected_text = string.gsub(selected_text, "'", "\\'")
   selected_text = string.gsub(selected_text, '"', '\\"')
-  selected_text = string.gsub(selected_text, '%$', '\\$')
+  selected_text = string.gsub(selected_text, "%$", "\\$")
 
   -- Use CopyQ to copy the selected text
   os.execute('copyq add "' .. selected_text .. '"')
   print("Copied to clipboard: " .. selected_text)
+end
+
+function M.log(message)
+  -- Get the path to the temporary directory
+  local temp_dir = os.getenv "TMPDIR" or os.getenv "TEMP" or "/tmp"
+  local log_file = temp_dir .. "/application.log"
+
+  -- Open the log file in append mode
+  local file = io.open(log_file, "a")
+  if file then
+    -- Write the message with a timestamp
+    file:write(os.date "%Y-%m-%d %H:%M:%S" .. " - " .. message .. "\n")
+    -- Close the file
+    file:close()
+  else
+    print "Error: Could not open log file."
+  end
 end
 
 return M

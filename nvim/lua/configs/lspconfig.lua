@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ast_grep", "bashls", "jsonls","pylsp" }
+local servers = { "html", "cssls", "ast_grep", "bashls", "jsonls", "pylsp" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -15,17 +15,6 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
-
-lspconfig.phpactor.setup {
-  cmd = { "phpactor", "language-server" }, -- Adjust the command if necessary
-  filetypes = { "php" },
-  root_dir = function()
-    return vim.fn.getcwd() -- Use the current directory as the root
-  end,
-  on_init = nvlsp.on_init,
-  n_attach = nvlsp.on_attach,
-  capabilities = nvlsp.capabilities,
-}
 
 -- configuring single server, example: typescript
 lspconfig.denols.setup {
@@ -51,4 +40,20 @@ lspconfig.ts_ls.setup {
   capabilities = nvlsp.capabilities,
   root_dir = lspconfig.util.root_pattern "package.json",
   single_file_support = true,
+}
+
+lspconfig.phpactor.setup {
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+  on_init = nvlsp.on_init,
+  on_attach = nvlsp.on_attach,
+  capabilities = nvlsp.capabilities,
+  init_options = {
+    ["language_server.diagnostics_on_update"] = false,
+    ["language_server.diagnostics_on_open"] = false,
+    ["language_server.diagnostics_on_save"] = false,
+    ["language_server_phpstan.enabled"] = false,
+    ["language_server_psalm.enabled"] = false,
+  },
 }

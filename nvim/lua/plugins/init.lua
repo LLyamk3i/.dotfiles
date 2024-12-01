@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -21,9 +21,18 @@ return {
         "lua",
         "vimdoc",
         "html",
+        "rust",
         "css",
+        "json",
+        "bash",
+        "blade",
+        "php",
+        "php_only",
       },
     },
+    config = function(_, opts)
+      require "configs.treesitter"(opts)
+    end,
   },
 
   {
@@ -46,7 +55,11 @@ return {
         "json-lsp",
         "python-lsp-server",
         "rust-analyzer",
-        "clangd"
+        "clangd",
+        "prettierd",
+        "black",
+        "isort",
+        "pint",
       },
     },
   },
