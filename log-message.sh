@@ -52,7 +52,7 @@ print_message() {
     max_width=$(get_max_type_width)
 
     # Format the message with consistent spacing after the colon
-    printf "${color}%-${max_width}s${NC}   %s\n" "${type^^}" "$message"
+    printf "${color}%-${max_width}s${NC}   %s\n" "$(echo "$type" | tr '[:lower:]' '[:upper:]')" "$message"
 }
 
 # Usage example
