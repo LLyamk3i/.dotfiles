@@ -1,7 +1,7 @@
 . $LOG_MESSAGE_PATH;
 
 todo() {
-  local todo_dir="~/lab/tmp/todo/";
+  local todo_dir="~/lab/tmp/todos/";
   cd "$todo_dir" || { print_message error "Failed to change directory to $todo_dir"; return 1; }
 
   local today_file="TODO.$(date +%Y%m%d).md"
