@@ -35,19 +35,20 @@ function M.copyq()
   end
 
   -- Escape single and double quotes in the selected text
-  selected_text = string.gsub(selected_text, "'", "\\'")
+  selected_text = string.gsub(selected_text, "\\", "\\\\")
+  -- selected_text = string.gsub(selected_text, "'", "\\'")
   selected_text = string.gsub(selected_text, '"', '\\"')
   selected_text = string.gsub(selected_text, "%$", "\\$")
 
   -- Use CopyQ to copy the selected text
-  os.execute('copyq add "' .. selected_text .. '"')
+  os.execute("copyq add '" .. selected_text .. "'")
   print("Copied to clipboard: " .. selected_text)
 end
 
 function M.log(message)
   -- Get the path to the temporary directory
   local temp_dir = os.getenv "TMPDIR" or os.getenv "TEMP" or "/tmp"
-  local log_file = temp_dir .. "/application.log"
+  local log_file = temp_dir .. "/nvim.log"
 
   -- Open the log file in append mode
   local file = io.open(log_file, "a")
