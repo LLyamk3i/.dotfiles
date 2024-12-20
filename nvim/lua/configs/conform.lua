@@ -10,6 +10,7 @@ local options = {
     rust = { "rust-analyzer" },
     cpp = { "clang-format" },
     python = { "isort", "black" },
+    sh = { "beautysh" },
   },
 
   format_on_save = {

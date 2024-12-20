@@ -60,6 +60,7 @@ return {
         "black",
         "isort",
         "pint",
+        "beautysh",
       },
     },
   },
