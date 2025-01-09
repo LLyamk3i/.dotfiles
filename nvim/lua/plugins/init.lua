@@ -61,6 +61,7 @@ return {
         "isort",
         "pint",
         "beautysh",
+        "intelephense",
       },
     },
   },
