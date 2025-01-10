@@ -1,24 +1,5 @@
 local M = {}
 
-function M.sort_selected_by_length()
-  -- Get the current visual selection
-  local start_pos = vim.fn.getpos "'<"
-  local end_pos = vim.fn.getpos "'>"
-  local start_line = start_pos[2]
-  local end_line = end_pos[2]
-
-  -- Get the selected lines
-  local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
-
-  -- Sort the lines by length
-  table.sort(lines, function(a, b)
-    return #a < #b
-  end)
-
-  -- Set the sorted lines back to the buffer
-  vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, lines)
-end
-
 -- Function to copy selected text to clipboard using CopyQ
 function M.copyq()
   -- Clear the contents of register z

@@ -26,10 +26,9 @@ map("n", "<A-d>", "yyP", { noremap = true, silent = true })
 map("v", "<leader>cp", function()
   functions.copyq()
 end, { noremap = true, silent = true, desc = "Copy selected strings" })
-map("v", "<leader>sl", function()
-  functions.sort_selected_by_length()
-end, {
-  noremap = true,
-  silent = true,
-  desc = "Sort by length the selected strings",
-})
+vim.keymap.set(
+  "v",
+  "<leader>sl",
+  ":'<,'>!awk '{ print length, $0 }' | sort -n | cut -d' ' -f2-<CR>",
+  { noremap = true, desc = "Sort selected lines by length" }
+)
