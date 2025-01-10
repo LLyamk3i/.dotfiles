@@ -62,7 +62,7 @@ return {
         "pint",
         "beautysh",
         "intelephense",
-        "vue-language-server",
+        "volar",
       },
     },
   },
