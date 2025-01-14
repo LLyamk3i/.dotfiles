@@ -38,6 +38,13 @@ require("nvim-tree").setup {
   },
 }
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "vue",
+  callback = function()
+    vim.bo.commentstring = "<!-- %s -->"
+  end,
+})
+
 vim.notify = require "notify"
 
 return M

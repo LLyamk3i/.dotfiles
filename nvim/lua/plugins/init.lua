@@ -28,6 +28,12 @@ return {
         "blade",
         "php",
         "php_only",
+        "vue",
+        "javascript",
+        "typescript",
+      },
+      highlight = {
+        enable = true,
       },
     },
     config = function(_, opts)
