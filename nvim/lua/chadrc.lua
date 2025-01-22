@@ -35,6 +35,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "php",
+  callback = function()
+    -- Set the commentstring for PHP files
+    vim.bo.commentstring = "// %s"
+  end,
+})
+
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
     vim.cmd "NvimTreeToggle" -- Automatically open the file explorer on startup
