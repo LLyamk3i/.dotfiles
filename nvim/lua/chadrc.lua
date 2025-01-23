@@ -62,4 +62,19 @@ vim.notify = require "notify"
 -- Custom Commands
 vim.api.nvim_create_user_command("CopyRelativePath", require("resources.helpers").copy_relative_path_to_copyq, {})
 
+-- Set clipboard to use xclip
+vim.opt.clipboard = "unnamedplus" -- Use the system clipboard
+vim.g.clipboard = {
+  name = "xclip",
+  copy = {
+    ["+"] = "xclip -selection clipboard -i",
+    ["*"] = "xclip -selection clipboard -i",
+  },
+  paste = {
+    ["+"] = "xclip -selection clipboard -o",
+    ["*"] = "xclip -selection clipboard -o",
+  },
+  cache_enabled = true,
+}
+
 return M

@@ -3,7 +3,6 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
-local functions = require "resources.helpers"
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -22,10 +21,6 @@ map("n", "<A-Down>", ":m .+1<CR>==", { noremap = true, silent = true })
 -- Map Alt + d to yank the current line and paste it above
 map("n", "<A-d>", "yyP", { noremap = true, silent = true })
 
--- Key mapping to test the add function
-map("v", "<leader>cp", function()
-  functions.copyq()
-end, { noremap = true, silent = true, desc = "Copy selected strings" })
 vim.keymap.set(
   "v",
   "<leader>sl",

@@ -14,32 +14,6 @@ function M.copy_relative_path_to_copyq()
   vim.notify("Copied relative path to CopyQ: " .. relative_path, vim.log.levels.INFO)
 end
 
--- Function to copy selected text to clipboard using CopyQ
-function M.copyq()
-  -- Clear the contents of register z
-  vim.fn.setreg("z", "")
-
-  -- Yank the selected text to the z register
-  vim.cmd 'normal! "zy'
-
-  -- Get the yanked text from register z
-  local selected_text = vim.fn.getreg "z"
-  if selected_text == "" then
-    print "No text selected!"
-    return
-  end
-
-  -- Escape single and double quotes in the selected text
-  selected_text = string.gsub(selected_text, "\\", "\\\\")
-  -- selected_text = string.gsub(selected_text, "'", "\\'")
-  selected_text = string.gsub(selected_text, '"', '\\"')
-  selected_text = string.gsub(selected_text, "%$", "\\$")
-
-  -- Use CopyQ to copy the selected text
-  os.execute("copyq add '" .. selected_text .. "'")
-  print("Copied to clipboard: " .. selected_text)
-end
-
 function M.log(message)
   -- Get the path to the temporary directory
   local temp_dir = os.getenv "TMPDIR" or os.getenv "TEMP" or "/tmp"
