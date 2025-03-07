@@ -42,3 +42,14 @@ nvim (){
   echo -ne "\033]0;nvim/$folder\007";
   /usr/local/bin/nvim;
 }
+
+function boltdiy_dev() {
+  cd /opt/bolt.diy || { echo "Directory /opt/bolt.diy not found."; return 1; }
+  
+  if [[ "$1" == "install" ]]; then
+    pnpm install
+  fi
+  
+  pnpm run dev
+}
+
