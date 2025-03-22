@@ -69,6 +69,7 @@ return {
         "beautysh",
         "intelephense",
         "volar",
+        "tailwindcss-language-server",
       },
     },
   },
