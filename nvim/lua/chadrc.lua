@@ -60,7 +60,7 @@ require("nvim-tree").setup {
 vim.notify = require "notify"
 
 -- Custom Commands
-vim.api.nvim_create_user_command("CopyRelativePath", require("resources.helpers").copy_relative_path_to_copyq, {})
+vim.api.nvim_create_user_command("CopyRelativePath", require("resources.helpers").copy_relative_path_to_clipboard, {})
 
 -- Set clipboard to use xclip
 vim.opt.clipboard = "unnamedplus" -- Use the system clipboard

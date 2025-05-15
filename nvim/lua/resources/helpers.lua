@@ -1,17 +1,15 @@
 local M = {}
 
 -- Function to copy the current file's relative path to CopyQ
-function M.copy_relative_path_to_copyq()
+function M.copy_relative_path_to_clipboard()
   -- Get the current file's absolute path
   local absolute_path = vim.fn.expand "%:p"
-  -- Get the current working directory
-  local cwd = vim.fn.getcwd()
-  -- Convert the absolute path to a relative path
+  -- Convert the absolute path to a path relative to the current working directory
   local relative_path = vim.fn.fnamemodify(absolute_path, ":.")
-  -- Use CopyQ to copy the relative path to the clipboard
-  vim.fn.system("copyq add " .. vim.fn.shellescape(relative_path))
+  -- Use xclip to copy the relative path to the system clipboard
+  vim.fn.system("echo -n " .. vim.fn.shellescape(relative_path) .. " | xclip -selection clipboard")
   -- Notify the user
-  vim.notify("Copied relative path to CopyQ: " .. relative_path, vim.log.levels.INFO)
+  vim.notify("Copied relative path to clipboard: " .. relative_path, vim.log.levels.INFO)
 end
 
 function M.log(message)
