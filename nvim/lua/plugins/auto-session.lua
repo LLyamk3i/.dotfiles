@@ -8,9 +8,6 @@ return {
     auto_restore_enabled = true, -- Restore sessions automatically
     auto_save_enabled = true, -- Save sessions automatically
 
-    -- Set the session directory to .nvim in the current working directory
-    auto_session_root_dir = vim.fn.expand(vim.fn.getcwd() .. "/.nvim/"),
-
     -- Use session-lens for searching saved sessions
     session_lens = {
       load_on_setup = true,
