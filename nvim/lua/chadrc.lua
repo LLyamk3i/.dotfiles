@@ -17,8 +17,8 @@ M.base46 = {
 -- Neovim Options
 local opt = {
   guicursor = "n-v-c:block-Cursor/lCursor-blinkon0", -- Set cursor to block and enable blinking
-  spell = true, -- Enable spell checking
-  spelllang = { "en_us" }, -- Set spell check language
+  -- spell = true, -- Enable spell checking
+  -- spelllang = { "en_us", "fr" }, -- Set spell check language
   sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions", -- Session options
 }
 
