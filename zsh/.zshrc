@@ -1,5 +1,5 @@
 # Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/llyam/.zsh/completions:"* ]]; then export FPATH="/home/llyam/.zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -141,32 +141,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-export PATH=$HOME/.local/bin:$PATH
-export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
-source $HOME/lab/tools/dotfiles/bash/main.sh
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$HOME/.bun/bin:$PATH"
+source "$HOME/.dotfiles/bash/.config/bash/main.sh"
 
 # bun completions
-[ -s "/home/llyam/.bun/_bun" ] && source "/home/llyam/.bun/_bun"
-export PATH="$PATH:/home/llyam/.local/android-sdk/cmdline-tools/bin"
-
-. "/home/llyam/.deno/env"
-# Initialize zsh completions (added by deno install script)
-# (Removed redundant manual compinit; Oh My Zsh handles it)
-
-export PATH="$PATH:$HOME/.go/bin"
-
-# pnpm
-export PNPM_HOME="/home/llyam/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export ANDROID_HOME=$HOME/.android
-export PATH=$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools:$PATH
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"

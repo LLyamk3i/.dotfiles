@@ -1,0 +1,17 @@
+{
+  "theme": "GitHub",
+  "selectedAuthType": "gemini-api-key",
+  "preferredEditor": "vim",
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    }
+  },
+  "vimMode": true,
+  "ideMode": true,
+  "hasSeenIdeIntegrationNudge": true
+}

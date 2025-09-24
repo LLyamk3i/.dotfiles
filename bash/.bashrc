@@ -115,4 +115,4 @@ fi
 alias l="ls -lah"
 
 . "$HOME/.cargo/env"
-. "/home/llyam/.deno/env"
+. "$HOME/.deno/env"

@@ -1,0 +1,31 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+    - vendor/nesbot/carbon/extension.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - phpstan-baseline.neon
+
+parameters:
+
+    paths:
+        - app/
+        - database/
+        - config/
+        - bootstrap/
+        - routes/
+
+    # Level 9 is the highest level
+    level: max
+
+    # larastan
+    checkModelProperties: true
+    checkUnusedViews: true
+    checkAuthCallsWhenInRequestScope: true
+    checkConfigTypes: true
+
+#    ignoreErrors:
+#        - '#PHPDoc tag @var#'
+#
+#    excludePaths:
+#        - ./*/*/FileToBeExcluded.php
+#
+#    checkMissingIterableValueType: false

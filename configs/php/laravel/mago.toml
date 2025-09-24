@@ -1,0 +1,32 @@
+# Welcome to Mago!
+# For full documentation, see https://mago.carthage.software/tools/overview
+php-version = "8.4.0"
+
+[source]
+paths = ["app/", "database/factories/", "database/seeders/"]
+includes = ["vendor"]
+excludes = []
+
+[formatter]
+print-width = 120
+tab-width = 4
+use-tabs = true
+
+[linter]
+integrations = ["laravel"]
+
+[linter.rules]
+ambiguous-function-call = { enabled = false }
+literal-named-argument = { enabled = false }
+halstead = { effort-threshold = 7000 }
+no-literal-password = { enabled = false}
+no-empty-comment = { enabled = false}
+no-noop = { enabled = false}
+
+[analyzer]
+find-unused-definitions = true
+find-unused-expressions = true
+analyze-dead-code = false
+check-throws = true
+allow-possibly-undefined-array-keys = false
+perform-heuristic-checks = true
