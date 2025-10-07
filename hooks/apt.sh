@@ -9,7 +9,7 @@ sudo -u llyam bash -c '
 
   # Ensure asdf shims and bins are available (for node/npm)
   export ASDF_DIR="${ASDF_DATA_DIR:-$HOME/.asdf}"
-  export PATH="$ASDF_DIR/bin:$ASDF_DIR/shims:$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.bun/bin:$PATH"
+  export PATH="$HOME/.local/bin:$ASDF_DIR/bin:$ASDF_DIR/shims:$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.bun/bin:$PATH"
 
   # Source logger directly by path
   LOG_SCRIPT="$HOME/.dotfiles/scripts/.local/bin/log-message.sh"
@@ -42,5 +42,12 @@ sudo -u llyam bash -c '
     npm -g update || print_message warning "npm -g update failed"
   else
     print_message warning "npm/node not found; skipping global npm update"
+  fi
+
+  # uv
+  if command -v uv >/dev/null 2>&1; then
+    uv self update || print_message warning "uv self update failed"
+  else
+    print_message warning "uv not found; skipping global uv update"
   fi
 '

@@ -145,3 +145,5 @@ source "$HOME/.dotfiles/bash/.config/bash/main.sh"
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"

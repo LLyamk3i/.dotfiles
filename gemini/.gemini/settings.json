@@ -1,17 +1,30 @@
 {
-  "theme": "GitHub",
-  "selectedAuthType": "gemini-api-key",
-  "preferredEditor": "vim",
-  "mcpServers": {
-    "context7": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ]
+  "general": {
+    "vimMode": true,
+    "enablePromptCompletion": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
     }
   },
-  "vimMode": true,
-  "ideMode": true,
-  "hasSeenIdeIntegrationNudge": true
+  "ui": {
+    "showMemoryUsage": true,
+    "showLineNumbers": true,
+    "theme": "ANSI Light"
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
+  },
+  "mcpServers": {
+    "context7": {
+      "httpUrl": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}",
+        "Accept": "application/json, text/event-stream"
+      }
+    }
+  }
 }
