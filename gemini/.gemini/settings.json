@@ -1,23 +1,4 @@
 {
-  "general": {
-    "vimMode": true,
-    "enablePromptCompletion": true
-  },
-  "security": {
-    "auth": {
-      "selectedType": "gemini-api-key"
-    }
-  },
-  "ui": {
-    "showMemoryUsage": true,
-    "showLineNumbers": true,
-    "theme": "ANSI Light"
-  },
-  "tools": {
-    "shell": {
-      "showColor": true
-    }
-  },
   "mcpServers": {
     "context7": {
       "httpUrl": "https://mcp.context7.com/mcp",
@@ -25,6 +6,37 @@
         "CONTEXT7_API_KEY": "${CONTEXT7_API_KEY}",
         "Accept": "application/json, text/event-stream"
       }
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    },
+    "folderTrust": {
+      "enabled": true
+    }
+  },
+  "general": {
+    "vimMode": true,
+    "debugKeystrokeLogging": true,
+    "preferredEditor": "vim",
+    "previewFeatures": true
+  },
+  "ui": {
+    "showLineNumbers": false,
+    "useFullWidth": false
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
+  },
+  "ide": {
+    "enabled": true
+  },
+  "experimental": {
+    "codebaseInvestigatorSettings": {
+      "enabled": true
     }
   }
 }

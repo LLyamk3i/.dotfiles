@@ -18,7 +18,7 @@ parameters:
 
     # larastan
     checkModelProperties: true
-    checkUnusedViews: true
+    checkUnusedViews: false
     checkAuthCallsWhenInRequestScope: true
     checkConfigTypes: true
 
